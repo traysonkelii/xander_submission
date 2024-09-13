@@ -16,16 +16,18 @@ extern "C" {
 
 
     // Create an instance of the Proc and return an ID
-    PLATFORM_EXPORT int CreateProc(const char* key, const char* region);
+    PLATFORM_EXPORT int CreateProc(const char* name, const char* key, const char* region);
 
     // Run Proc for the specified ID
     PLATFORM_EXPORT int RunProc(int id, int process_length);
 
-    // shutdown the proc and free memory
+    // Get the name of the Proc instance
+    PLATFORM_EXPORT const char* GetProcName(int id);
+
+    // Shutdown the proc and free memory
     PLATFORM_EXPORT int DestroyProc(int id);
 
-
-
+    
 
 #ifdef __cplusplus
 }

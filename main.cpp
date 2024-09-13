@@ -4,35 +4,25 @@
 
 int main(int, char**) {
     {
-        // Example of creating an instance of the Proc and running it
-        int proc_id = CreateProc("Keyword", "Region Name");
-        RunProc(proc_id, 10);
-        DestroyProc(proc_id);
-    }
+        // Create multiple Proc instances with names
+        int proc_id_one = CreateProc("First Name", "Keyword", "Region Name");
+        int proc_id_two = CreateProc("Second Name", "OtherKey", "Region Name");
+        int proc_id_three = CreateProc("Third Name", "AnotherKey", "Region Name");
 
-    {
-        // Make the proc ID field functional so multiple Procs can be created and destroyed
+        // Run the Procs
+        RunProc(proc_id_one, 15);
+        RunProc(proc_id_two, 20);
+        RunProc(proc_id_three, 25);
 
-        // int proc_id_one = CreateProc("Keyword", "Region Name");
-        // int proc_id_two = CreateProc("OtherKey", "Region Name");
-        // RunProc(proc_id_one, 15);
-        // RunProc(proc_id_two, 20);
+        // Retrieve and print the names of the Procs
+        std::cout << "Proc one name: " << GetProcName(proc_id_one) << std::endl;
+        std::cout << "Proc two name: " << GetProcName(proc_id_two) << std::endl;
+        std::cout << "Proc three name: " << GetProcName(proc_id_three) << std::endl;
 
-        // DestroyProc(proc_id_one);
-        // DestroyProc(proc_id_two);
-    }
-
-
-    {
-        // Add a 'name' field to the proc library for instances and print it out
-        
-        // int proc_id_one = CreateProc("FirstProc", "Keyword", "Region Name");
-        // int proc_id_two = CreateProc("SecondProc", "OtherKey", "Region Name");
-        
-        // somehow print... GetProcName(proc_id_one) ...
-
-        // DestroyProc(proc_id_one);
-        // DestroyProc(proc_id_two);
+        // Destroy the Procs
+        DestroyProc(proc_id_one);
+        DestroyProc(proc_id_two);
+        DestroyProc(proc_id_three);
     }
 
     return 0;
